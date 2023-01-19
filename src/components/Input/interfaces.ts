@@ -1,10 +1,5 @@
 import { UseFormRegister } from 'react-hook-form'
-
-export interface IInputKeys {
-  saleValue: string
-  installments: number
-  mdr: number
-}
+import { IInputKeys } from '../../context/interfaces'
 
 export interface InputProps {
   id: string

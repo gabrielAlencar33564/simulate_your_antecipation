@@ -1,4 +1,5 @@
-import { InputProps, IInputKeys } from './interfaces'
+import { InputProps } from './interfaces'
+import { IInputKeys } from './interfaces'
 import { FieldPath } from 'react-hook-form'
 
 export const Input = ({ required = false, ...props }: InputProps) => {
@@ -7,7 +8,7 @@ export const Input = ({ required = false, ...props }: InputProps) => {
       {props.label && (
         <label htmlFor={props.id}>
           {props.label}
-          {required && <span>*</span>}
+          {required && <span> *</span>}
         </label>
       )}
       <input
@@ -15,7 +16,7 @@ export const Input = ({ required = false, ...props }: InputProps) => {
         id={props.id}
         {...props.register(props.id as FieldPath<IInputKeys>)}
       />
-      {props.errors && <span>Campo Obrigatório</span>}
+      {props.errors && <span>{props.errors}</span>}
     </>
   )
 }
