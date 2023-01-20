@@ -1,10 +1,12 @@
-import { IInputKeys } from '../../context/interfaces'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { formSchema } from './validator'
+import { IInputKeys } from '../../context/interfaces'
+import { useAntecipationContext } from '../../context'
 import { Input } from '../Input'
 
 export const FormDashboard = () => {
+  const { postAntecipation } = useAntecipationContext()
   const {
     register,
     handleSubmit,
@@ -13,12 +15,8 @@ export const FormDashboard = () => {
     resolver: yupResolver(formSchema),
   })
 
-  const onSubmit: SubmitHandler<IInputKeys> = (data) => {
-    console.log(data)
-  }
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onChange={handleSubmit(postAntecipation)}>
       <Input
         id="amount"
         label="Informe o valor da venda"
@@ -43,8 +41,6 @@ export const FormDashboard = () => {
         errors={errors.mdr?.message}
         required
       />
-
-      <button type="submit">enter</button>
     </form>
   )
 }
