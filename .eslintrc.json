@@ -5,10 +5,9 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "standard-with-typescript",
     "airbnb",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "plugin:prettier/recommended"
   ],
   "overrides": [],
   "parserOptions": {
