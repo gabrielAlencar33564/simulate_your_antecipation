@@ -5,6 +5,7 @@ export interface IAntecipationProvider {
 }
 export interface IAntecipationContext {
   postAntecipation: (data: IInputKeys) => Promise<void>
+  antecipations: {}
 }
 
 export interface IInputKeys {

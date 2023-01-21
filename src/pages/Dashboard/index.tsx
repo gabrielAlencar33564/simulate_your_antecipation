@@ -1,13 +1,17 @@
 import { FormDashboard } from '../../components/FormDashboard'
+import { ResultList } from '../../components/ResultList'
 
 export const Dashboard = () => {
   return (
     <main>
       <div>
-        <h1></h1>
+        <h1>Simule sua Antecipação</h1>
         <FormDashboard />
       </div>
-      <div></div>
+      <div>
+        <h2>VOCÊ RECEBERÁ:</h2>
+        <ResultList />
+      </div>
     </main>
   )
 }
