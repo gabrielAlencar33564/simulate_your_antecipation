@@ -5,18 +5,17 @@ import { SubmitHandler } from 'react-hook-form'
 import { IInputKeys } from './interfaces'
 import { AxiosError } from 'axios'
 
-interface teste {
-  error: any
-}
-
 const AntecipationContext = createContext<IAntecipationContext>(
   {} as IAntecipationContext,
 )
 
 export const AntecipationProvider = ({ children }: IAntecipationProvider) => {
   const [antecipations, setAntecipations] = useState([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [statusError, setStatusError] = useState<number>(200)
 
   const postAntecipation: SubmitHandler<IInputKeys> = (data) => {
+    setIsLoading(true)
     const amount = data.amount
       .split('')
       .filter((value) => {
@@ -26,7 +25,7 @@ export const AntecipationProvider = ({ children }: IAntecipationProvider) => {
       .replace(',', '.')
 
     api
-      .post('?oi', {
+      .post('?internalError', {
         ...data,
         amount: +amount,
       })
@@ -36,7 +35,10 @@ export const AntecipationProvider = ({ children }: IAntecipationProvider) => {
       })
       .catch((err: AxiosError) => {
         const { response } = err
-        console.log(response)
+        setStatusError(response?.status as number)
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
   }
 
@@ -45,6 +47,8 @@ export const AntecipationProvider = ({ children }: IAntecipationProvider) => {
       value={{
         postAntecipation,
         antecipations,
+        isLoading,
+        statusError,
       }}
     >
       {children}

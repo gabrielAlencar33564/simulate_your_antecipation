@@ -4,8 +4,8 @@ import { Dashboard } from '../pages/Dashboard'
 export const RoutesPage = () => {
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="*" element={<Navigate to="/dashboard" />} />
     </Routes>
   )
 }
