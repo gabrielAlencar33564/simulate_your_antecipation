@@ -1,4 +1,7 @@
 import { useAntecipationContext } from '../../context'
+import { priceFormated } from '../../utils'
+import '../../style/global.css'
+import './style.css'
 
 export const ResultList = () => {
   const { antecipations } = useAntecipationContext()
@@ -9,8 +12,9 @@ export const ResultList = () => {
     <ul>
       {days.map((day, index) => {
         return (
-          <li key={index}>
-            {day === '1' ? 'Amanhã' : `Em ${day} dias`}: R$ {values[index]}
+          <li key={index} className="text_2">
+            {day === '1' ? 'Amanhã' : `Em ${day} dias`}:{' '}
+            <span>{priceFormated.format(+values[index])}</span>
           </li>
         )
       })}
