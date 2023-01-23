@@ -1,0 +1,70 @@
+main {
+  width: 100%;
+  max-width: 600px;
+  height: 390px;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #d1dce3;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5rem;
+}
+
+.antecipation_simulation {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 41px 56px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.list_antecipation {
+  width: 40%;
+  padding: 83px 35px;
+  background: rgba(209, 220, 227, 0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+.text_list_antecipation {
+  position: relative;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  border-bottom: #5d9cec solid 1px;
+  padding-bottom: 4px;
+  margin-bottom: 13px;
+}
+
+ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@keyframes rotating {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  position: absolute;
+  animation: rotating 1s infinite;
+  border: 6px solid #e5e5e5;
+  border-top-color: #5d9cec;
+  border-radius: 50%;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  margin-top: 5rem;
+  margin-left: 3.5rem;
+}
