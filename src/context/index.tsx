@@ -25,7 +25,7 @@ export const AntecipationProvider = ({ children }: IAntecipationProvider) => {
       .replace(',', '.')
 
     api
-      .post('?delay=10000', {
+      .post('', {
         ...data,
         amount: +amount,
       })
