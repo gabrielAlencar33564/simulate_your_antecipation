@@ -9,7 +9,6 @@ export const Dashboard = () => {
   const { isLoading } = useAntecipationContext()
   return (
     <main>
-      <Error />
       <div className="antecipation_simulation">
         <h1 className="text_1">Simule sua Antecipação</h1>
         <FormDashboard />
@@ -19,6 +18,7 @@ export const Dashboard = () => {
         <ResultList />
         {isLoading && <div className="loading"></div>}
       </div>
+      <Error />
     </main>
   )
 }
