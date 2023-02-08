@@ -1,12 +1,12 @@
-import { FormDashboard } from '../../components/FormDashboard'
-import { ResultList } from '../../components/ResultList'
-import { useAntecipationContext } from '../../context'
-import { Error } from '../../components/Error'
-import './styled.css'
-import '../../style/global.css'
+import { FormDashboard } from "../../components/FormDashboard";
+import { ResultList } from "../../components/ResultList";
+import { useAntecipationContext } from "../../context";
+import { Error } from "../../components/Error";
+import "./styled.css";
+import "../../style/global.css";
 
 export const Dashboard = () => {
-  const { isLoading } = useAntecipationContext()
+  const { isLoading } = useAntecipationContext();
   return (
     <main>
       <div className="antecipation_simulation">
@@ -20,5 +20,5 @@ export const Dashboard = () => {
       </div>
       <Error />
     </main>
-  )
-}
+  );
+};

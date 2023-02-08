@@ -1,46 +1,46 @@
-import { createContext, useContext, useState } from 'react'
-import { IAntecipationContext, IAntecipationProvider } from './interfaces'
-import { api } from '../services/api'
-import { SubmitHandler } from 'react-hook-form'
-import { IInputKeys } from './interfaces'
-import { AxiosError } from 'axios'
+import { createContext, useContext, useState } from "react";
+import { IAntecipationContext, IAntecipationProvider } from "./interfaces";
+import { api } from "../services/api";
+import { SubmitHandler } from "react-hook-form";
+import { IInputKeys } from "./interfaces";
+import { AxiosError } from "axios";
 
 const AntecipationContext = createContext<IAntecipationContext>(
-  {} as IAntecipationContext,
-)
+  {} as IAntecipationContext
+);
 
 export const AntecipationProvider = ({ children }: IAntecipationProvider) => {
-  const [antecipations, setAntecipations] = useState([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [statusError, setStatusError] = useState<number>(200)
+  const [antecipations, setAntecipations] = useState([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [statusError, setStatusError] = useState<number>(200);
 
   const postAntecipation: SubmitHandler<IInputKeys> = (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
     const amount = data.amount
-      .split('')
+      .split("")
       .filter((value) => {
-        if (value !== '.') return value
+        if (value !== ".") return value;
       })
-      .join('')
-      .replace(',', '.')
+      .join("")
+      .replace(",", ".");
 
     api
-      .post('', {
+      .post("", {
         ...data,
         amount: +amount,
       })
       .then((res) => {
-        console.log(res, 'passou')
-        setAntecipations(res.data)
+        console.log(res, "passou");
+        setAntecipations(res.data);
       })
       .catch((err: AxiosError) => {
-        const { response } = err
-        setStatusError(response?.status as number)
+        const { response } = err;
+        setStatusError(response?.status as number);
       })
       .finally(() => {
-        setIsLoading(false)
-      })
-  }
+        setIsLoading(false);
+      });
+  };
 
   return (
     <AntecipationContext.Provider
@@ -53,10 +53,10 @@ export const AntecipationProvider = ({ children }: IAntecipationProvider) => {
     >
       {children}
     </AntecipationContext.Provider>
-  )
-}
+  );
+};
 
 export const useAntecipationContext = (): IAntecipationContext => {
-  const context = useContext(AntecipationContext)
-  return context
-}
+  const context = useContext(AntecipationContext);
+  return context;
+};

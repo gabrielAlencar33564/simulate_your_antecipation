@@ -1,5 +1,5 @@
-import { Route, Routes, Navigate } from 'react-router-dom'
-import { Dashboard } from '../pages/Dashboard'
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Dashboard } from "../pages/Dashboard";
 
 export const RoutesPage = () => {
   return (
@@ -7,5 +7,5 @@ export const RoutesPage = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="*" element={<Navigate to="/dashboard" />} />
     </Routes>
-  )
-}
+  );
+};
