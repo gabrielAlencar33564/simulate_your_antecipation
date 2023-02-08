@@ -1,9 +1,9 @@
-import { useAntecipationContext } from '../../context'
-import './style.css'
-import '../../style/global.css'
+import { useAntecipationContext } from "../../context";
+import "./style.css";
+import "../../style/global.css";
 
 export const Error = () => {
-  const { statusError } = useAntecipationContext()
+  const { statusError } = useAntecipationContext();
   return (
     <>
       {statusError === 500 && (
@@ -12,8 +12,8 @@ export const Error = () => {
             <h1 className="text_1">{statusError} Server Error</h1>
             <h2>Oops, algo deu errado.</h2>
             <p>
-              Tente atualizar a página, se o problema ainda persistir entre em
-              contato conosco.
+              Tente atualizar a página, se o problema ainda persistir entre em contato
+              conosco.
             </p>
           </div>
         </div>
@@ -29,5 +29,5 @@ export const Error = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
